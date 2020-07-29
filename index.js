@@ -4,6 +4,7 @@ const logger = require('morgan');
 const consola = require('consola');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const cors = require('cors');
 const passport = require('passport');
 const methodOverride = require('method-override');
 const flash = require('express-flash');
@@ -72,6 +73,11 @@ app.use(flash());
 app.use(
   bodyParser.urlencoded({
     extended: true
+  })
+);
+app.use(
+  cors({
+    origin: '*'
   })
 );
 
@@ -159,9 +165,11 @@ app.use((req, res, next) => {
  * Primary app routes.
  */
 
-const indexRoute = require('./routes/index');
+const indexRoutes = require('./routes/index');
+const apiRoutes = require('./routes/api');
 
-app.use(indexRoute);
+app.use(indexRoutes);
+app.use('/api', apiRoutes);
 app.get(
   '/auth/spotify',
   passport.authenticate('spotify', {
@@ -204,6 +212,7 @@ app.use((err, req, res, next) => {
     error: {}
   });
 });
+
 /**
  * Express actions
  */

@@ -36,7 +36,7 @@ router.get('/', async (req, res) => {
 router.post(
   '/key',
   rateLimit({
-    windowMs: 15 * 60, // 15 minutes
+    windowMs: 1000 * 60 * 5,
     max: 2,
     message: {
       message: 'Too many reqeusts.',
