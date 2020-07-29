@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html class="h-100" lang="en">
+  <head>
+    <title>
+      <%= siteTitle %>
+    </title>
+    <!-- Basic Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="/favico.ico" type="image/x-icon" />
+    <!-- Font Awsome-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/bower_components/font-awsome/css/all.min.css"
+    />
+    <!--Bootstrap -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/bower_components/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <!-- Custom -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+
+    <!-- Site meta data -->
+    <meta name="description" content="<%= siteDesc %>" />
+  </head>
+
+  <body class="auth mb-0">
+    <div class="form-auth">
+      <div class="branding text-center mb-4">
+        <span><%= siteTitle %></span>
+      </div>
+      Welcome <strong> <%= currentUser.username %></strong> your API key is
+      below
+      <form action="/key" method="POST" novalidate>
+        <input type="hidden" name="_csrf" value="<%= _csrf  %>" />
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Your API Key"
+            aria-label="Your API Key"
+            aria-describedby="basic-addon2"
+            value="<%= currentUser.apiKey %>"
+            disabled
+          />
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit">
+              <% if(!currentUser.apiKey) {%> Get Key <%} else { %> Reset Key <%
+              } %>
+            </button>
+          </div>
+        </div>
+      </form>
+      <a
+        role="button"
+        href="/logout"
+        class="btn btn-auth btn-primary btn-block"
+      >
+        Logout
+      </a>
+    </div>
+
+    <!-- Bootstrap Javascript -->
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
