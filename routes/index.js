@@ -31,7 +31,7 @@ router.get('/', async (req, res) => {
 /**
  * @route /key
  * @method GET
- * @description Get API KEy
+ * @description Get API KyE
  */
 router.post(
   '/key',
