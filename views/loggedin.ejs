@@ -29,8 +29,8 @@
     <meta name="description" content="<%= siteDesc %>" />
   </head>
 
-  <body class="auth mb-0">
-    <div class="form-auth">
+  <body class="tool mb-0">
+    <div class="form">
       <div class="branding text-center mb-4">
         <span><%= siteTitle %></span>
       </div>
@@ -49,7 +49,7 @@
             disabled
           />
           <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="submit">
+            <button class="btn btn-outline-primary" type="submit">
               <% if(!currentUser.apiKey) {%> Get Key <%} else { %> Reset Key <%
               } %>
             </button>
