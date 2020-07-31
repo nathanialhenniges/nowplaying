@@ -64,9 +64,8 @@ router.get(
               });
           });
         return res.json({
-          accessToken: user.spotify.accessToken,
-          refreshToken: user.spotify.refreshToken,
-          expiresIn: user.spotify.expiresIn
+          token: user.spotify.accessToken,
+          spotifyId: user.username
         });
       }
 
