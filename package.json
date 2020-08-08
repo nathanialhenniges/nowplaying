@@ -43,7 +43,7 @@
     "dev": "nodemon index.js",
     "lint": "eslint . --ext .js --fix",
     "format": "prettier-eslint --write $PWD/'**/*.{js,json}'",
-    "install": "bowser i"
+    "install": "bower i"
   },
   "repository": {
     "type": "git",
