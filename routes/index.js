@@ -37,7 +37,7 @@ router.post(
   '/key',
   rateLimit({
     windowMs: 1000 * 60 * 5,
-    max: 2,
+    max: 4,
     message: {
       message: 'Too many reqeusts.',
       status: 429

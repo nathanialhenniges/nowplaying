@@ -18,8 +18,8 @@ const User = require('../models/User');
 router.get(
   '/spotifyCreds',
   rateLimit({
-    windowMs: 1000 * 60, // 15 minutes
-    max: 4,
+    windowMs: 1000 * 60 * 15, // 15 minutes
+    max: 30,
     message: {
       message: 'Too many reqeusts.',
       status: 429
