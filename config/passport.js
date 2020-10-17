@@ -28,7 +28,6 @@ module.exports = passport => {
               }
             });
             await user.save();
-            console.log(user);
 
             return done(null, user);
           }
@@ -39,8 +38,6 @@ module.exports = passport => {
           user.spotify.refreshToken = refreshToken;
           user.spotify.expiresIn = expiresIn;
           await user.save();
-
-          console.log(user);
 
           done(null, user);
         } catch (err) {

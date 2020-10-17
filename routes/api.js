@@ -38,8 +38,6 @@ router.get(
             headers: { Authorization: `Bearer ${user.spotify.accessToken}` }
           })
           .catch(async err => {
-            console.log('Getting new');
-
             axios
               .post(
                 'https://accounts.spotify.com/api/token/',
