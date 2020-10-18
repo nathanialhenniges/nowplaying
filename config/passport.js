@@ -17,7 +17,7 @@ module.exports = passport => {
         try {
           let user = await User.findOne({ username: profile.id });
           if (!user) {
-            user = User.create({
+            user = await User.create({
               username: profile.id,
               // eslint-disable-next-line dot-notation
               email: profile['_json'].email,

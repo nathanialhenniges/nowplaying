@@ -10,18 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="shortcut icon" href="/favico.ico" type="image/x-icon" />
-    <!-- Font Awsome-->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="/bower_components/font-awsome/css/all.min.css"
-    />
-    <!--Bootstrap -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="/bower_components/bootstrap/dist/css/bootstrap.min.css"
-    />
     <!-- Custom -->
     <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
 
@@ -29,16 +17,18 @@
     <meta name="description" content="<%= siteDesc %>" />
   </head>
 
-  <body class="tool mb-0">
-    <div class="form">
-      <div class="branding text-center mb-4">
-        <span><%= siteTitle %></span>
+  <body class="flex items-center h-full py-12 mb-0 bg-priamry-400">
+    <div class="w-1/2 p-6 m-auto bg-gray-400 rounded-md shadow-md">
+      <div class="mb-4 text-center">
+        <h1 class="text-2xl font-medium leading-10 align-middle">
+          <%= siteTitle %>
+        </h1>
       </div>
       Welcome <strong> <%= currentUser.username %></strong> your API key is
       below
       <form action="/key" method="POST" novalidate>
         <input type="hidden" name="_csrf" value="<%= _csrf  %>" />
-        <div class="input-group mb-3">
+        <div class="mb-3 input-group">
           <input
             type="text"
             class="form-control"
@@ -57,16 +47,11 @@
         </div>
       </form>
       <a
-        role="button"
         href="/logout"
-        class="btn btn-auth btn-primary btn-block"
+        class="block w-full p-2 my-3 text-xl font-medium text-center text-white no-underline bg-green-500 border-8 border-transparent hover:text-white hover:bg-green-400"
       >
         Logout
       </a>
     </div>
-    <!-- jQuery -->
-    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap Javascript -->
-    <script src="/bower_components/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

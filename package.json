@@ -26,7 +26,9 @@
     "morgan": "^1.10.0",
     "nanoid": "^3.1.12",
     "passport": "^0.4.1",
-    "passport-spotify": "^1.1.0"
+    "passport-spotify": "^1.1.0",
+    "postcss-cli": "^8.1.0",
+    "tailwindcss": "^1.9.4"
   },
   "devDependencies": {
     "eslint": "^7.6.0",
@@ -41,6 +43,8 @@
     "dev": "nodemon index.js",
     "lint": "eslint . --ext .js --fix",
     "format": "prettier-eslint --write $PWD/'**/*.{js,json}'",
+    "build:dev": "postcss tailwind.css -o public/assets/css/main.css",
+    "build:prod": "NODE_ENV=production postcss tailwind.css -o public/assets/css/main.css",
     "install": "bower i"
   },
   "repository": {
