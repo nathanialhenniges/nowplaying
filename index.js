@@ -34,7 +34,7 @@ mongoose.set('useCreateIndex', true);
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
 mongoose.connect(process.env.DATABASE_URI, {
-  useNewUrlParser: true
+  useNewUrlParser: true,
 });
 const db = mongoose.connection;
 
@@ -62,7 +62,7 @@ app.set('views', `${__dirname}/views`);
  * Express configuration (compression, logging, body-parser,methodoverride)
  */
 app.set('host', process.env.IP || '127.0.0.1');
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 8080);
 app.use(methodOverride('_method'));
 
 app.use(lusca.xframe('SAMEORIGIN'));
@@ -72,12 +72,12 @@ app.use(compression());
 app.use(flash());
 app.use(
   bodyParser.urlencoded({
-    extended: true
+    extended: true,
   })
 );
 app.use(
   cors({
-    origin: '*'
+    origin: '*',
   })
 );
 
@@ -100,9 +100,9 @@ app.use(
     saveUninitialized: false,
     secret: process.env.SESSION_SECRET,
     cookie: {
-      maxAge: 1000 * 60 * 60 * 24
+      maxAge: 1000 * 60 * 60 * 24,
     }, // Two weeks in milliseconds
-    store: new MongoStore({ mongooseConnection: mongoose.connection })
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
   })
 );
 
@@ -176,8 +176,8 @@ app.get(
     scope: [
       'user-read-email',
       'user-read-recently-played',
-      'user-read-currently-playing'
-    ]
+      'user-read-currently-playing',
+    ],
   })
 );
 app.get(
@@ -209,7 +209,7 @@ app.use((err, req, res, next) => {
   res.status(403);
   res.json({
     message: 'Please Try again.',
-    error: {}
+    error: {},
   });
 });
 
